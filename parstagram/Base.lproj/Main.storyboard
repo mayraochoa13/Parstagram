@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--LoginViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="parstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="parstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="348" id="SGH-ji-6QX" customClass="PostCell" customModule="parstagram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="348" id="SGH-ji-6QX" userLabel="PostCell" customClass="PostCell" customModule="parstagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="348"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SGH-ji-6QX" id="1oW-yZ-dGi">
@@ -107,13 +107,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3R-s6-fxY">
-                                                    <rect key="frame" x="8" y="318" width="207" height="21"/>
+                                                    <rect key="frame" x="8" y="318" width="203.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Wow! I love photos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSp-QG-SCt">
-                                                    <rect key="frame" x="223" y="318" width="144" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" misplaced="YES" text="Wow! I love photos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSp-QG-SCt">
+                                                    <rect key="frame" x="53" y="318" width="144" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="CSp-QG-SCt" secondAttribute="height" multiplier="36:5" id="XSY-iD-puL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -144,6 +147,11 @@
                         <viewLayoutGuide key="safeArea" id="iFs-m3-M72"/>
                     </view>
                     <navigationItem key="navigationItem" id="ce0-yA-Jq4">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="jeK-1S-eth">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="N3K-PT-bWu" id="BDE-8C-aZw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="insta_camera_btn" id="Vnh-eX-U82">
                             <connections>
                                 <segue destination="zKy-XM-pfb" kind="presentation" id="Tp6-cb-NVM"/>
